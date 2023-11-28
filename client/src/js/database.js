@@ -20,7 +20,7 @@ export const putDb = async (content) => {
   const store = tx.objectStore('jate');
   const request = store.put({ id: 1, value: content });
   const result = await request;
-  console.log('Data saved', result.value);
+  console.log('Data saved', result);
 };
 
 // Method that gets content from the IndexedDB database using the idb module
@@ -35,7 +35,7 @@ export const getDb = async () => {
     ? console.log('Data retrieved from the database', result.value)
     : console.log('Data not found in the database');
   // Check if a variable is defined and if it is, return it. See MDN Docs on Optional Chaining (https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining)
-  return result.value;
+  return result?.value;
 };
 
 initdb();
